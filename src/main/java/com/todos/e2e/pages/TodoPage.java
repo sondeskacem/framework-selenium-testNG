@@ -18,17 +18,42 @@ public class TodoPage extends BasePage{
 	
 	/*Locators*/
 	final static String INPUT_TEXT = "//input[@ng-model='newTodo']";
+	final static String ELEMENT_TODO = "//label[@class='ng-binding']";
+	final static String CHECKBOX = "//input[@type= 'checkbox']";
+
 	
 	/*@FinBy*/
 	//@FindBy(id = INPUT_TEXT)
 	//private WebElement inputText;
 	@FindBy(how = How.XPATH, using = INPUT_TEXT)
 	public static WebElement inputText;
+	@FindBy(how = How.XPATH, using = ELEMENT_TODO)
+	public static WebElement elementTodo;
+	@FindBy(how = How.XPATH, using = CHECKBOX)
+	public static WebElement checkbox;
 	
 	/*Methods*/
 	public void submitTodo(String todo) {
 		writeText(inputText, todo);
 		inputText.sendKeys(Keys.ENTER);	
 		}
+	
+	public Boolean isElementDisplayed(WebElement element) {
+		
+		Boolean isElementDisplayed = element.isDisplayed();
+		return isElementDisplayed;
+	}
+	
+	public String checkElementContains(WebElement element) {
+		
+		String elementToget = element.getText();
+		return elementToget;
+	}
+	
+	public Boolean IsCheckBoxSelected(WebElement element) {
+		
+		Boolean IsCheckBoxSelected = element.isSelected();
+		return IsCheckBoxSelected;
+	}
 
 }
