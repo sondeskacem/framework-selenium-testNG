@@ -55,5 +55,11 @@ public class TodoPage extends BasePage{
 		Boolean IsCheckBoxSelected = element.isSelected();
 		return IsCheckBoxSelected;
 	}
+	
+	public String checkTextIsRemoved(WebElement element) {
+
+		String pageSource = driver.getPageSource();
+		return pageSource;
+		}
 
 }
